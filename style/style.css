@@ -17,3 +17,33 @@ main{
 footer{
     justify-content: space-around;
 }
+.contenedor-img{
+background-image: url(../img/error.404.png);
+background-position: center;
+padding: 20rem 0.5rem;
+background-size: cover;
+background-repeat: no-repeat;
+}
+.ocultar{
+    display: none;
+}
+@media (max-width: 912px) { 
+    .contenedor-img{
+       background-image: none;
+      font-weight: 900;
+       color: #fff;
+      
+    
+        }
+        .ocultar{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+           border: 1px solid rgb(0, 255, 68);
+            font-weight: 900;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 0 13px 0 #3cff0193;
+            
+        }
+}
