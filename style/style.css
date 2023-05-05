@@ -17,3 +17,9 @@ main{
 footer{
     justify-content: space-around;
 }
+
+#Culumna{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
