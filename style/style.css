@@ -24,6 +24,10 @@ main{
     background-color: var(--primary-green);
 }
 
+.bg-green {
+    background-color: var(--primary-green);
+}
+
 .general-container{
     /* border: 1px solid var(--primary-gray); */
     border-radius: 5px;
