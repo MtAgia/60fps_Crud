@@ -9,11 +9,13 @@ body{
     font-family: 'Bruno Ace SC', cursive;
     display: flex;
     flex-direction: column;
+    background-color: black;
 }
 
 main{
     min-height: 100vh;
 }
+
 footer{
     justify-content: space-around;
 }
