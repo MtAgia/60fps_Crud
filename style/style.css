@@ -16,6 +16,14 @@ main{
     min-height: 100vh;
 }
 
+.form-control {
+    border-color: var(--primary-gray);
+}
+
+.form-control:focus {
+    border-color: var(--primary-green);
+}
+
 footer{
     justify-content: space-around;
 }
