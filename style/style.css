@@ -20,6 +20,10 @@ main{
     min-height: 100vh;
 }
 
+.hero-title {
+    background-color: var(--primary-green);
+}
+
 .general-container{
     /* border: 1px solid var(--primary-gray); */
     border-radius: 5px;
