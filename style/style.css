@@ -45,3 +45,17 @@ main{
 footer{
     justify-content: space-around;
 }
+
+::-webkit-scrollbar {
+    background-color: black;
+}
+
+::-webkit-scrollbar-track {
+    background-color: black;
+    border: 1px solid #014221;;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-green);
+    border-radius: 5px;
+}
