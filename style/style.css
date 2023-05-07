@@ -17,3 +17,7 @@ main{
 footer{
     justify-content: space-around;
 }
+
+.anchuraBoton{ 
+    width: 1330px;
+}
