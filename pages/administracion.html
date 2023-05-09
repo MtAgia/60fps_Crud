@@ -22,38 +22,52 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="/style/style.css" />
     <title>Document</title>
 </head>
 <body>
     <header>
       <nav class="navbar bg-black">
         <div class="container-fluid">
-          <a href="/index.html" class="navbar-brand"><img src="../img/60Fps (logoNav).png" width="200px" alt="60fpsNavbar"></a>
+          <a href="/index.html" class="navbar-brand"><img src="/img/60Fps (logoNav).png" width="200px" alt="60fpsNavbar"></a>
           <section class="d-flex pe-4" role="search">
             <button class="btn botonOscuro btn-outline-success ColorVerde" >Iniciar</button>
           </section>
         </div>
       </nav>
     </header>
-
     <main class="bg-black">
- <section>
-    <div class="contenedor-img">
-        <div class="ocultar">
-            <h1 class="text-center">Ups algo salio mal</h1>
-            <h2>ERROR 404</h2>
-        </div>
-    
-    </div>
- </section>
-    </main>
-
+        <h3 class="display-4 text-light text-center">Administracion de Juegos</h3>
+        <h5 class="text-light text-center">crear, leer, actualizar y eliminar juegos</h5>
+        <hr class="text-light"/>
+        <button
+            type="button"
+            class="btn btn-outline-success text-center  anchuraBoton"
+          >Crear Juego</button>
+          <hr class="text-light">
+        <h5 class="my-2 text-light my-3">Informacion actual: </h5>
+        <article class="table-responsive container">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Título</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Género</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </article>
+        </main>
     <footer class="bg-black text-bg-dark pt-4">
       <section class="container-fluid text-center justify-content-between">
         <article class="row text-info">
           <aside class="col-12 col-md-4 col-lg-4 mb-2">
-            <img  src="../img/60Fps(logoFoot).png" width="250px" alt="logoFooter" />
+            <img  src="/img/60Fps(logoFoot).png" width="250px" alt="logoFooter" />
           </aside>
           <aside class="col-12 col-md-4 col-lg-4 mb-2 pt-4">
             <h5 class="ColorVerde">Preguntas? Llama al 0800 666 3331</h5>
@@ -74,7 +88,7 @@
           <aside class="col-12 col-md-4 col-lg- mb-2 pt-4">
             <h5 class="ColorVerde">Por mas consultas</h5>
             <a
-              href=""
+              href="/pages/acercaNosotros.html"
               class="fw-bold text-secondary fs-4"
               >Acerca de nosotros</a
             >
