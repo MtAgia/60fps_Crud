@@ -56,8 +56,8 @@ footer{
 
 
 .anchuraBoton{ 
-    width: 1330px;
- }
+    width: 100%
+}
 
 ::-webkit-scrollbar {
     background-color: black;
