@@ -54,6 +54,11 @@ footer{
     justify-content: space-around;
 }
 
+
+.anchuraBoton{ 
+    width: 100%
+}
+
 ::-webkit-scrollbar {
     background-color: black;
 }
