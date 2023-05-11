@@ -94,20 +94,20 @@
                         type="number"
                         class="form-control"
                         aria-label="codigo"
-                        id="codigo"
+                        id="id"
                         min="1"
                         max="500"
                         disabled
                       />
                     </div>
                     <div class="col-12">
-                      <label for="titulo" class="form-label">Nombre *</label>
+                      <label for="nombre" class="form-label">Nombre *</label>
                       <input
                         type="text"
                         class="form-control"
                         placeholder="Ej: Spiderman"
-                        aria-label="titulo"
-                        id="titulo"
+                        aria-label="nombre"
+                        id="nombre"
                       />
                     </div>
                     <div class="col-12">
@@ -120,8 +120,6 @@
                         placeholder="Ej: Todo empieza en un accidente..."
                         aria-label="descripcion"
                         id="descripcion"
-                        maxlength="600"
-                        minlength="2"
                       ></textarea>
                     </div>
                     <div class="col-12">
@@ -135,11 +133,11 @@
                       />
                     </div>
                     <div class="col-12">
-                      <label for="genero" class="form-label">Género *</label>
+                      <label for="genero" class="form-label">Categoria *</label>
                       <select
                         class="form-select"
                         aria-label="Genero de Juego"
-                        id="genero"
+                        id="categoria"
                       >
                         <option selected value="">Seleccione una opción</option>
                         <option value="Accion">Acción</option>
@@ -156,7 +154,7 @@
                         class="form-control"
                         aria-label="precio"
                         placeholder="$$$"
-                        id="anio"
+                        id="precio"
                       />
                     </div>
                     <div class="col-12">
@@ -169,8 +167,6 @@
                         placeholder="Ej: Windows 10, 16GB Ram"
                         aria-label="reqDelSistema"
                         id="reqDelSistema"
-                        maxlength="600"
-                        minlength="2"
                       ></textarea>
                     </div>
                     <div class="col-12">
@@ -181,19 +177,19 @@
                         aria-label="desarrolador"
                         placeholder="Ej: Activision"
                         id="desarrolador"
-                        minlength="3"
-                        maxlength="40"
                       />
                     </div>
                     <div class="col-12">
-                      <p class="text-light">Reseñas *</p>
-                      <label for="">Positivas
-                        <input type="radio" name="reseña" value="true">
-                      </label>
-                      <br>
-                      <label for="" class="my-2">Negativas
-                        <input type="radio" name="reseña" value="false">
-                      </label>
+                      <label for="resena" class="form-label">Seleccione Tipo de Reseña *</label>
+                      <select
+                        class="form-select"
+                        aria-label="Reseña de juego"
+                        id="resena"
+                      >
+                        <option selected value="">Seleccione una opción</option>
+                        <option value="positiva">Positiva</option>
+                        <option value="negativa">Negativa</option>
+                      </select>
                     </div>
                     <button type="submit" class="btn botonOscuro btn-outline-success ColorVerde">
                       Enviar
