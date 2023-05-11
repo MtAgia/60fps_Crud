@@ -8,7 +8,7 @@ export default class VideoJuego {
   #imagen;
   #requisitosDeSistema;
   #desarrollador;
-  #resena;
+  //#resena;
   constructor(
     nombre,
     precio,
@@ -16,8 +16,8 @@ export default class VideoJuego {
     categoria,
     imagen,
     requisitosDeSistema,
-    desarrollador,
-    resena
+    desarrollador
+    //resena
   ) {
     this.#id = uuidv4();
     this.#nombre = nombre;
@@ -27,7 +27,7 @@ export default class VideoJuego {
     this.#imagen = imagen;
     this.#requisitosDeSistema = requisitosDeSistema;
     this.#desarrollador = desarrollador;
-    this.#resena = resena;
+    //this.#resena = resena;
   }
 
   // Getters
@@ -62,11 +62,11 @@ export default class VideoJuego {
   get desarrollador() {
     return this.#desarrollador;
   }
-
+  /*
   get resena() {
     return this.#resena;
   }
-
+*/
   // Setters
   set id(id) {
     this.#id = id;
@@ -99,10 +99,11 @@ export default class VideoJuego {
   set desarrollador(desarrollador) {
     this.#desarrollador = desarrollador;
   }
-
+  /*
   set resenas(resenas) {
     this.#resena = resena;
   }
+*/
   toJSON() {
     return {
       id: this.id,
@@ -114,7 +115,7 @@ export default class VideoJuego {
       imagen: this.imagen,
       requisitosDeSistema: this.requisitosDeSistema,
       desarrolador: this.desarrollador,
-      resena: this.resena,
+      //resena: this.resena,
     };
   }
 }
