@@ -26,7 +26,7 @@ console.log(listaJuegos)
 
 function prepararJuego(e){
     e.preventDefault();
-    crearPeli();
+    crearJuego();
 }
 
 function limpiarFrom() {
@@ -34,7 +34,7 @@ function limpiarFrom() {
 }
 
 
-function crearPeli(){
+function crearJuego(){
 let prueba = new VideoJuego(
   nombre.value,
   precio.value,
