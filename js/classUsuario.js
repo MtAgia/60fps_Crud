@@ -101,5 +101,5 @@ export default class Usuario {
         listaDeseados: this.listaDeseados,
       }
     }
-  }
+}
   
