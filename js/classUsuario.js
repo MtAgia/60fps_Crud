@@ -53,7 +53,21 @@ export default class Usuario {
     }
   
     static getUsuarios() {
-      return JSON.parse(localStorage.getItem("usuarios")) || [];
+      let usuarios = localStorage.getItem("usuarios");
+      if(!usuarios || usuarios.length < 1){
+        usuarios = [];
+      }else {
+        usuarios = JSON.parse(usuarios).map(
+          (usuario) =>
+            new Usuario(
+              usuario.nombre,
+              usuario.mail,
+              usuario.password,
+              usuario.isAdmin,
+            )
+        );
+      }
+      return usuarios;
     }
   
     static crearUsuario(usuario) {
