@@ -64,6 +64,7 @@ export default class Usuario {
               usuario.mail,
               usuario.password,
               usuario.isAdmin,
+              usuario.listaDeseados
             )
         );
       }
