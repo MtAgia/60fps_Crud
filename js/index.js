@@ -1,3 +1,4 @@
+import Usuario from "./classUsuario.js";
 
 
 function mostrarJuegos(){
@@ -36,5 +37,3 @@ window.redirigirADetalle = (codigo) =>{
 }
 
 mostrarJuegos();
-
-
