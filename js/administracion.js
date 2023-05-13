@@ -23,7 +23,44 @@ if(!listaJuegos){
     new VideoJuego(juego.nombre,juego.precio,juego.descripcion,juego.categoria,juego.imagen,juego.requisitosDeSistema,juego.desarrollador)
     );
 }
-console.log(listaJuegos)
+
+cargaInicial();
+function cargaInicial() {
+  if (listaJuegos.length > 0) {
+    listaJuegos.map((juego, i) => crearFila(juego, i + 1));
+  } else {
+    // le muestro el msj que no tengo elementos
+  }
+}
+
+function crearFila(tablaJuego, i){
+  let tbody = document.querySelector(`tbody`);
+  tbody.innerHTML += `
+  <tr>
+      <th scope="row" class="text-light">${i}</th>
+      <td class="text-light" >${tablaJuego.nombre}</td>
+      <td class="text-truncate ancho text-light pe-5">
+      ${tablaJuego.descripcion}
+      </td>
+      <td class="text-truncate text-light ancho pe-5">
+      ${tablaJuego.imagen}
+      </td>
+      <td class="text-light" >${tablaJuego.categoria}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-warning mx-1"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          <i class="bi bi-pencil-square"></i></button
+        ><button type="button" class="btn btn-danger mx-1" ">
+          <i class="bi bi-x-square"></i>
+        </button>
+      </td>
+    </tr>
+  `;
+}
 
 function prepararJuego(e){
     e.preventDefault();
@@ -33,7 +70,7 @@ function prepararJuego(e){
 function limpiarFrom() {
   formJuegos.reset();
 }
-
+let alerta = document.getElementById(`alertError`);
 
 function crearJuego(){
   //validacion
@@ -61,8 +98,9 @@ function crearJuego(){
     console.log(prueba);
     console.log(listaJuegos);
     limpiarFrom();
+    alerta.className = "alert alert-success ColorVerde border-0 text-center bg-black"
+    alerta.innerHTML = "cargada correctamente"
   }else{
-    let alerta = document.getElementById(`alertError`);
     alerta.className = "alert alert-success colorRojo border-0 text-center bg-black"
     alerta.innerHTML=  errores
   }

@@ -13,6 +13,10 @@
     color: #f80000;
 }
 
+.ancho{
+    max-width: 150px;
+}
+
 body{
     font-family: 'Bruno Ace SC', cursive;
     display: flex;
