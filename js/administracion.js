@@ -100,6 +100,7 @@ function crearJuego(){
     limpiarFrom();
     alerta.className = "alert alert-success ColorVerde border-0 text-center bg-black"
     alerta.innerHTML = "cargada correctamente"
+    crearFila(prueba , listaJuegos.length )
   }else{
     alerta.className = "alert alert-success colorRojo border-0 text-center bg-black"
     alerta.innerHTML=  errores
