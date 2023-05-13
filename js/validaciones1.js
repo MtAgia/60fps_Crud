@@ -1,7 +1,7 @@
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const form = document.getElementById("formulario");
-const warning = document.getElementById("warning")
+
 
 form.addEventListener("submit", e=>{
   e.preventDefault();
