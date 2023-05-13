@@ -8,7 +8,6 @@ function validarCantCaracteres(texto, min, max) {
 
 function validarURLImagenes(texto) {
   const patron = /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|png|gif)$/;
-  //console.log(typeof patron);
   if (patron.test(texto)) {
     return true;
   } else {
