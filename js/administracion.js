@@ -1,4 +1,5 @@
 import VideoJuego from "./classJuegos.js";
+import { totalValidaciones } from "./helpersAdministracion.js";
 /*
 CRUD
 Create
@@ -35,18 +36,34 @@ function limpiarFrom() {
 
 
 function crearJuego(){
-let prueba = new VideoJuego(
-  nombre.value,
-  precio.value,
+  //validacion
+  let errores = totalValidaciones(nombre.value, 
   descripcion.value,
-  categoria.value,
   imagen.value,
+  categoria.value,
+  precio.value,
   reqDelSistema.value,
   desarrolador.value
-);
-listaJuegos.push(prueba)
-localStorage.setItem(`listaJuego`, JSON.stringify(listaJuegos));
-console.log(prueba);
-console.log(listaJuegos)
-limpiarFrom();
+  )
+  if(errores.length === 0){
+    //creacion
+    let prueba = new VideoJuego(
+      nombre.value,
+      precio.value,
+      descripcion.value,
+      categoria.value,
+      imagen.value,
+      reqDelSistema.value,
+      desarrolador.value
+    );
+    listaJuegos.push(prueba);
+    localStorage.setItem(`listaJuego`, JSON.stringify(listaJuegos));
+    console.log(prueba);
+    console.log(listaJuegos);
+    limpiarFrom();
+  }else{
+    let alerta = document.getElementById(`alertError`);
+    alerta.className = "alert alert-success colorRojo border-0 text-center bg-black"
+    alerta.innerHTML=  errores
+  }
 }

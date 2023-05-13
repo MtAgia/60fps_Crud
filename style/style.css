@@ -9,6 +9,10 @@
     color: #00ff7d;
 }
 
+.colorRojo{
+    color: #f80000;
+}
+
 body{
     font-family: 'Bruno Ace SC', cursive;
     display: flex;
