@@ -44,16 +44,16 @@ export function totalValidaciones(inputTexto, inputDescripcion, inputImagen, inp
         resumen +="*Tiene que ingresar una imagen con formato valido, con terminacion (.jpg, .png, .gif) <br>";
     }
     if (!validacionCategoria(inputCategoria)) {
-      resumen += "*Porfavor ingrese categorias acceptadas";
+      resumen += "*Porfavor ingrese categorias acceptadas <br>";
     }
     if(!validarPrecio(inputPrecio)){
-        resumen +="*Porfavor el precio tiene que ser mayor a 1 y menor a 9999";
+        resumen +="*Porfavor el precio tiene que ser mayor a 1 y menor a 9999 <br>";
     }
     if (!validarCantCaracteres(inputReqSistemas, 30, 400)) {
-        resumen +="*Porfavor los requisitos del sistema tienen que tener mas de 30 caracteres y menos de 400";
+        resumen +="*Porfavor los requisitos del sistema tienen que tener mas de 30 caracteres y menos de 400 <br>";
     }
     if (!validarCantCaracteres(inputDesarrolador, 2, 100)) {
-        resumen +="*Porfavor los desarroladores tienen que tener mas de 2 caracteres y menos de 100";
+        resumen +="*Porfavor los desarroladores tienen que tener mas de 2 caracteres y menos de 100 <br>";
     }
     return resumen
 }
