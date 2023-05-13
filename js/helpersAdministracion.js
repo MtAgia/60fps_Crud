@@ -24,7 +24,7 @@ function validacionCategoria(categoria){
 }
 
 function validarPrecio(precio) {
-  if (precio > 1 && precio < 9999) {
+  if (precio > 1 || precio < 9999) {
     return true;
   } else {
     return false;
