@@ -39,15 +39,17 @@
     </header>
     <main class="bg-black my-md-4">
         <section class="general-container py-5 mt-5 me-2 ms-2">
-        <form class="Columna" id="formulario" >
-            <label for="email" class="text-dark"> Email:</label>
-            <input type="text" id="email" name="email"  minlength="6" maxlength=" 254">
-           
-            <label for="password" class="text-dark mt-4">Contraseña:</label>
-            <input type="password" id="password" name="contrasena" minlength="6" maxlength="20">
-           
-          <button type="submit" class="btn btn-outline-light mt-3">Iniciar Sesión</button>
-        </form>
+          <form id="formulario" >
+            <div class="Columna">
+              <label for="email">Email</label>
+              <input type="text" id="email" name="email">
+              <span class="error-message"></span>
+              <label for="password" class="mt-3">Password</label>
+              <input type="password" id="password" name="password">
+              <span class="error-message"></span>
+              <button type="submit" class="btn btn-outline-light mt-3">Iniciar Sesion</button>
+            </form>
+          </div>
     </section>
     </main>
     <footer class="bg-black text-bg-dark pt-4 ">

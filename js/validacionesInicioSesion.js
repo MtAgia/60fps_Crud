@@ -3,7 +3,7 @@ const password = document.getElementById("password");
 const form = document.getElementById("formulario");
 
 
-form.addEventListener("submit", (e)=>{
+form.addEventListener("submit", e=>{
   e.preventDefault();
   validarContrasenia();
   validarEmail();
@@ -32,6 +32,8 @@ function validarEmail() {
     return false;
   }
 }
+
+
 
 
 
