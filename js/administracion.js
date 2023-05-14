@@ -4,9 +4,18 @@ import { totalValidaciones } from "./helpersAdministracion.js";
 CRUD
 Create
 */
-let formJuegos = document.getElementById(`formJuegos`)
-formJuegos.addEventListener(`submit`, prepararJuego);
-let id = document.getElementById(`id`),
+const formJuegos = document.getElementById("formJuegos");
+const modalJuego = new bootstrap.Modal(document.getElementById("modalAdministrarJuego"));
+const btnAgregarJuego = document.querySelector("#btnAgregarJuego");
+const tablaJuego = document.querySelector("tbody");
+
+
+formJuegos.addEventListener("submit", prepararJuego);
+btnAgregarJuego.addEventListener("click", mostrarModalAdministrador);
+
+let verificarCrearJuego = true;
+
+const id = document.getElementById(`id`),
   nombre = document.getElementById(`nombre`),
   descripcion = document.getElementById(`descripcion`),
   imagen = document.getElementById(`imagen`),
@@ -25,6 +34,7 @@ if(!listaJuegos){
 }
 
 cargaInicial();
+
 function cargaInicial() {
   if (listaJuegos.length > 0) {
     listaJuegos.map((juego, i) => crearFila(juego, i + 1));
@@ -50,8 +60,7 @@ function crearFila(tablaJuego, i){
         <button
           type="button"
           class="btn btn-warning mx-1"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
+          onclick="prepararJuego('${tablaJuego.id}')"
         >
           <i class="bi bi-pencil-square"></i></button
         ><button type="button" class="btn btn-danger mx-1" ">
@@ -64,7 +73,15 @@ function crearFila(tablaJuego, i){
 
 function prepararJuego(e){
     e.preventDefault();
-    crearJuego();
+    if (verificarCrearJuego) {
+      crearJuego();
+    } else {
+      editarJuego();
+    }
+}
+
+function guardarEnLocalStorage(){
+  localStorage.setItem("listaJuego", JSON.stringify(listaJuegos));
 }
 
 function limpiarFrom() {
@@ -105,4 +122,49 @@ function crearJuego(){
     alerta.className = "alert alert-success colorRojo border-0 text-center bg-black"
     alerta.innerHTML=  errores
   }
+}
+
+window.prepararJuego = (idJuego) => {
+  modalJuego.show();
+
+  const juegoBuscado = listaJuegos.find((juego) => juego.id === idJuego);
+  
+  // id.value = juegoBuscado.id;
+  nombre.value = juegoBuscado.nombre;
+  descripcion.value = juegoBuscado.descripcion;
+  imagen.value = juegoBuscado.imagen;
+  categoria.value = juegoBuscado.categoria;
+  precio.value = juegoBuscado.precio;
+  reqDelSistema.value = juegoBuscado.requisitosDeSistema;
+  desarrolador.value = juegoBuscado.desarrolador;
+
+  verificarCrearJuego = false;
+}
+
+function editarJuego() {
+  const posicionJuego = listaJuegos.find((juego) => juego.id === id.value);//Esto debo modificar
+
+  listaJuegos[posicionJuego].nombre = nombre.value;
+  listaJuegos[posicionJuego].descripcion = descripcion.value;
+  listaJuegos[posicionJuego].imagen = imagen.value;
+  listaJuegos[posicionJuego].categoria = categoria.value;
+  listaJuegos[posicionJuego].precio = precio.value;
+  listaJuegos[posicionJuego].requisitosDeSistema = reqDelSistema.value;
+  listaJuegos[posicionJuego].desarrolador = nombre.desarrolador;
+
+  guardarEnLocalStorage();
+
+  tablaJuego.children[posicionJuego].children[1].innerHTML = nombre.value;
+  tablaJuego.children[posicionJuego].children[2].innerHTML = descripcion.value;
+  tablaJuego.children[posicionJuego].children[3].innerHTML = imagen.value;
+  tablaJuego.children[posicionJuego].children[4].innerHTML = categoria.value;
+
+  formJuegos.reset();
+  modalJuego.hide();
+}
+
+function mostrarModalAdministrador(){
+  formJuegos.reset();
+  modalJuego.show();
+  verificarCrearJuego = true;
 }

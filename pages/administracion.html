@@ -43,8 +43,7 @@
         <button
             type="button"
             class="btn btn-outline-success text-center ColorVerde anchuraBoton"
-          data-bs-toggle="modal"
-          data-bs-target="#AdministradorModalCrear"
+            id="btnAgregarJuego"
             >Crear Juego</button>
           <hr class="text-light">
         <h5 class="my-2 text-light my-3">Informacion actual: </h5>
@@ -67,15 +66,15 @@
         </main>
         <div
           class="modal fade"
-          id="AdministradorModalCrear"
+          id="modalAdministrarJuego"
           tabindex="-1"
-          aria-labelledby="AdministradorModalCrear"
+          aria-labelledby="modalAdministrarJuego"
           aria-hidden="true"
         >
           <div class="modal-dialog">
             <div class="modal-content bg-black">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="AdministradorModalCrear">
+                <h1 class="modal-title fs-5" id="">
                   Administrar Juegos
                 </h1>
                 <button
