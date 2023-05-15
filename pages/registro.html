@@ -23,7 +23,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../style/style.css" />
-    <title>Document</title>
+    <title>60fps - Registro</title>
 </head>
 <body>
     <header>
@@ -38,29 +38,34 @@
       </nav>
     </header>
 
-    <main class="bg-black">
+    <main class="bg-black my-md-5">
         <section class="d-flex justify-content-center mt-5 pt-4">
           
-        <form id="miFormulario " class="d-flex flex-column card-formulario">
-            <h3 class="text-center">Suscribete Ahora</h3>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required minlength="2" maxlength="8">
-    
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required minlength="" maxlength="230">
-    
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" minlength="8"  maxlength="10" required>
-    
-            <label for="confirmar_contrasena">Confirmar Contraseña:</label>
-            <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" minlength="8" maxlength="10" required>
-                <label>
-                    <input type="radio" name="tipo-usuario" value="admin"> Admin
-                  </label>
-                  <label>
-                    <input type="radio" name="tipo-usuario" value="Usuario">Usuario
-                  </label>
-                  <button type="submit" class="btn btn-outline-warning">Enviar</button>
+        <form id="formulario-registro" class="d-flex flex-column card-formulario general-container">
+            <h3 class="text-center">Registrate</h3>
+            <div class="form-floating my-3">
+              <input class="form-control bg-dark border-0 text-white" type="text" id="registro-nombre" name="registro-nombre" required minlength="2" maxlength="20">
+              <label for="registro-nombre">nombre</label>
+              <div class="invalid-feedback">Debe ingresar un nombre válido</div>
+            </div>
+            <div class="form-floating my-3">
+              <input class="form-control bg-dark border-0 text-white" type="text" id="registro-email" name="registro-email" required minlength="10" maxlength="50">
+              <label for="registro-email">Email</label>
+              <div class="invalid-feedback">Debe ingresar un mail válido</div>
+            </div>
+            <div class="form-floating">
+              <input class="form-control bg-dark border-0 text-white" type="password" id="registro-password" name="registro-password" required minlength="8" maxlength="30">
+              <label for="registro-password">Password</label>
+              <div class="invalid-feedback">La contraseña debe tener al menos 8 caracteres, con al menos una mayúscula, un numero y un caracter especial</div>
+            </div>
+            <div class="form-floating my-3">
+              <input class="form-control bg-dark border-0 text-white" type="password" id="registro-repetir-password" name="registro-repetir-password" required minlength="8" maxlength="30">
+              <label for="registro-repetir-password">Repetir password</label>
+              <div class="invalid-feedback">Las contraseñas no coinciden</div>
+            </div>
+            <div id="registro-error-mensaje" class="bg-green d-none text-center m-2">Las contraseñas no coinciden</div>
+            
+            <button type="submit" class="btn btn-outline-light mt-3">Registrar</button>
         </form>
     </section>
     </main>
