@@ -134,20 +134,24 @@
       </footer>
       <div class="modal fade" id="modal-login" tabindex="-1" aria-labelledby="modal-login" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
+          <div class="modal-content bg-black general-container">
             <div class="modal-body">
-              <div class="d-flex justify-content-between">
-                  <h1 class="modal-title fs-5 text-dark" id="modal">Iniciar sesión</h1>
+              <div class="d-flex justify-content-between bg-green p-2 rounded">
+                  <h2 class="modal-title fs-5 text-dark" id="modal">Iniciar sesión</h2>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <form class="formulario-login" id="Culumna" >
-                  <label for="usuario" class="text-dark">Usuario o Email:</label>
-                  <input type="text" id="usuario" name="usuario" required minlength="6" maxlength=" 254">
-                  
-                  <label for="contrasena" class="text-dark">Contraseña:</label>
-                  <input type="password" id="contrasena" name="contrasena" required minlength="6" maxlength="20">
-                  
-                <button type="submit" class="btn btn-outline-warning mt-3">Iniciar Sesión</button>
+              <form class="formulario-login text-dark" id="Culumna" >
+                <div class="form-floating my-3">
+                  <input class="form-control bg-dark border-0 text-white" type="text" id="email" name="email">
+                  <label for="email">Email</label>
+                  <div class="invalid-feedback">Debe ingresar un mail válido</div>
+                </div>
+                <div class="form-floating">
+                  <input class="form-control bg-dark border-0 text-white" type="password" id="password" name="password">
+                  <label for="password">Password</label>
+                  <div class="invalid-feedback">La contraseña debe tener al menos 8 caracteres, con al menos una mayúscula, un numero y un caracter especial</div>
+                </div>
+                <button type="submit" class="btn btn-outline-light mt-3">Iniciar Sesion</button>
               </form>
             </div>
           </div>

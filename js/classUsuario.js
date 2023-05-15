@@ -101,7 +101,7 @@ export default class Usuario {
   
       if (usuarioEncontrado && usuarioEncontrado.password === password) {
         console.log(`Bienvenido, ${usuarioEncontrado.nombre}!`);
-        sessionStorage.setItem("loggedUser", JSON.stringify(usuario));
+        sessionStorage.setItem("loggedUser", JSON.stringify(usuarioEncontrado));
         return true;
       } else {
         console.log("Email o contraseña incorrectos.");
