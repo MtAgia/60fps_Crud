@@ -2,7 +2,7 @@ import Usuario from "./classUsuario.js";
 
 const btnLogin = document.querySelector("#btn-login");
 const formularioLogin = document.querySelector(".formulario-login");
-const btnIniciarSesion = document.querySelector("#btn-iniciar-sesion");
+const btnRegistro = document.querySelector("#btn-registro");
 const modalLogin = new bootstrap.Modal(document.querySelector("#modal-login"));
 
 
@@ -23,7 +23,7 @@ function login(e) {
     if (validarEmail() && validarPassword()) {
         if (Usuario.login(formularioLogin.usuario.value, formularioLogin.contrasena.value)) {
             btnLogin.innerHTML = "Cerrar Sesion";
-            btnIniciarSesion.classList.add("d-none");
+            btnRegistro.classList.add("d-none");
         } else {
             //Logica para lo que pasa si estan mal mail o contraseña
         }
@@ -41,6 +41,18 @@ function validarPassword() {
 function logout() {
     Usuario.logout();
     btnLogin.innerHTML = "Iniciar Sesion";
-    btnIniciarSesion.classList.remove("d-none");
+    btnRegistro.classList.remove("d-none");
     window.location.href = window.location.origin;
+}
+
+verificarUsuarioLogeado();
+
+function verificarUsuarioLogeado(){
+    if (sessionStorage.getItem("loggedUser")) {
+        btnLogin.innerHTML = "Cerrar Sesion";
+        btnRegistro.classList.add("d-none");
+    } else {
+        btnLogin.innerHTML = "Iniciar Sesion";
+        btnRegistro.classList.remove("d-none");
+    }
 }
