@@ -1,5 +1,3 @@
-const contadorRedireccion = document.querySelector("#contador-redireccion");
-
 function redirigirAIndex() {
     window.location.href = '../index.html';
 }
