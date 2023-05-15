@@ -188,17 +188,38 @@ function editarJuego() {
 
 }
 
+let confirmadoEliminacion = false;
+let idJuegoAEliminar;
+
+const btnEliminarJuego = document.querySelector("#btn-eliminar-juego");
+btnEliminarJuego.addEventListener("click", () => {
+  confirmadoEliminacion = true;
+  eliminarJuego(idJuegoAEliminar);
+});
+
 window.abrirModalEliminarJuego = (id) => {
   modalEliminarJuego.show();
   const juegoBuscado = listaJuegos.find((juego) => juego.id === id);
   const nombreEliminarJuego = document.querySelector("#nombre-juego-eliminar");
-  const btnEliminarJuego = document.querySelector("#btn-eliminar-juego");
-  btnEliminarJuego.addEventListener("click", () => eliminarJuego(id));
+
+  idJuegoAEliminar = id;
+
   nombreEliminarJuego.textContent = `${juegoBuscado.nombre}`;
 }
 
 window.eliminarJuego = (id) => {
+  if (!confirmadoEliminacion) {
+    return;
+  }
+
+  modalEliminarJuego.hide();
   const posicionJuego = listaJuegos.findIndex((juego) => juego.id === id);
+
+  if (posicionJuego === -1) {
+    return;
+  }
+
+  confirmadoEliminacion = false;
   listaJuegos.splice(posicionJuego, 1);
   guardarEnLocalStorage();
   tablaJuego.removeChild(tablaJuego.children[posicionJuego]);
