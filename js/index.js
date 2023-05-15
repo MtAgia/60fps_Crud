@@ -12,7 +12,7 @@ function mostrarJuegos(){
     
     listaJuegos.forEach(juego => {
         const cardJuego = document.createElement("div");
-        cardJuego.className = "col-10 col-lg-3 card game-card px-0 mx-1 mb-3 border-0"
+        cardJuego.className = "col-10 col-lg-3 card game-card px-0 mx-1 juegos mb-3 border-0"
         cardJuego.innerHTML = `
         <img src="${juego.imagen}" class="card-img-top" alt="game card image">
         <div class="card-body bg-dark text-white">
