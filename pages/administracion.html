@@ -258,19 +258,22 @@
                           aria-label="nombre"
                           id="nombre-usuario"
                         />
+                        <div class="invalid-feedback">Debe ingresar un nombre válido</div>
                       </div>
                       <div class="col-12">
                         <label for="email-usuario" class="form-label">Mail *</label>
                         <input type="email" class="form-control" placeholder="user@mail.com" id="email-usuario" aria-label="email-usuario">
+                        <div class="invalid-feedback">Debe ingresar un mail válido</div>
                       </div>
                       <div class="col-12">
                         <label for="password-usuario" class="form-label">Password *</label>
                         <input type="password" class="form-control" placeholder="password" id="password-usuario" aria-label="password-usuario">
+                        <div class="invalid-feedback">La contraseña debe tener al menos 8 caracteres, con al menos una mayúscula, un numero y un caracter especial</div>
                       </div>
                       <div class="col-12">
                         <label class="form-label">Es admin *</label>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="adminoption" id="admin-yes" value="true">
+                          <input class="form-check-input" type="radio" name="adminoption" id="admin-yes" value="true" required>
                           <label class="form-check-label" for="admin-yes">Sí</label>
                         </div>
                         <div class="form-check">
@@ -278,7 +281,8 @@
                           <label class="form-check-label" for="admin-no">No</label>
                         </div>
                       </div>
-                      <div class="alert alert-success d-none colorRojo border-0 text-center bg-black" id="alertErrorUsuario" role="alert"></div>
+                      <div id="registro-error-mensaje" class="bg-green d-none text-center m-2 text-black">No se pudo registrar: El mail ya esta en uso</div>
+                      <div id="registro-exitoso" class="bg-green d-none text-center m-2 text-black">El registro se realizó de forma correcta</div>
                       <button type="submit" class="btn botonOscuro btn-outline-success ColorVerde">Enviar</button>
                     </div>
                   </form>
