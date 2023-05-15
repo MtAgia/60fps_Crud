@@ -181,3 +181,8 @@ p,ul li{
     background-color: var(--primary-green);
     border-radius: 5px;
 }
+
+.btn-outline-success:hover {
+    color: black;
+    background-color: var(--primary-green);
+}
