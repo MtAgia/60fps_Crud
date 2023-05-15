@@ -7,11 +7,25 @@ const btnAgregarUsuario = document.querySelector("#btnAgregarUsuario");
 const nombreUsuario = document.querySelector("#nombre-usuario");
 const mailUsuario = document.querySelector("#email-usuario");
 const passwordUsuario = document.querySelector("#password-usuario");
-const adminOption = document.querySelector('input[name="adminoption"]:checked').value;
 const registroErrorMensaje = document.querySelector("#registro-error-mensaje");
 const registroExitosoMensaje = document.querySelector("#registro-exitoso");
 const radioButtonYes = document.querySelector("#admin-yes");
 const radioButtonNo = document.querySelector("#admin-no");
+const sectionGestionarJuegos = document.querySelector("#gestionarJuegos");
+const sectionGestionarUsuarios = document.querySelector("#gestionarUsuarios");
+
+const btnGestionarUsuarios = document.querySelector("#btnGestionarUsuarios");
+const btnGestionarJuegos = document.querySelector("#btnGestionarJuegos");
+
+btnGestionarJuegos.addEventListener("click", () => {
+    sectionGestionarJuegos.classList.remove("d-none");
+    sectionGestionarUsuarios.classList.add("d-none");
+});
+
+btnGestionarUsuarios.addEventListener("click", () => {
+    sectionGestionarUsuarios.classList.remove("d-none");
+    sectionGestionarJuegos.classList.add("d-none");
+});
 
 formCrearUsuario.addEventListener("submit", prepararUsuario);
 btnAgregarUsuario.addEventListener("click", mostrarModalCrearUsuario);
