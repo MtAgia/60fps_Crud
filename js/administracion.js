@@ -57,7 +57,7 @@ function crearFila(tablaJuego, i){
         <button
           type="button"
           class="btn btn-warning mx-1"
-          onclick="prepararJuego('${tablaJuego.id}')"
+          onclick="prepararEditarJuego('${tablaJuego.id}')"
         >
           <i class="bi bi-pencil-square"></i></button
         ><button type="button" class="btn btn-danger mx-1" ">
@@ -125,7 +125,8 @@ function crearJuego(){
   }
 }
 
-window.prepararJuego = (idJuego) => {
+window.prepararEditarJuego = (idJuego) => {
+  idContainer.classList.remove("d-none");
   modalJuego.show();
 
   const juegoBuscado = listaJuegos.find((juego) => juego.id === idJuego);
@@ -182,6 +183,7 @@ function editarJuego() {
 }
 
 function mostrarModalAdministrador(){
+  idContainer.classList.add("d-none");
   formJuegos.reset();
   modalJuego.show();
   verificarCrearJuego = true;
