@@ -9,6 +9,14 @@
     color: #00ff7d;
 }
 
+.colorRojo{
+    color: #f80000;
+}
+
+.ancho{
+    max-width: 150px;
+}
+
 body{
     font-family: 'Bruno Ace SC', cursive;
     display: flex;
@@ -54,30 +62,11 @@ footer{
     justify-content: space-around;
 }
 
-
-.Columna{
-
+.Culumna{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-input{
-    width: 50%;
-    padding: 0.4rem;
-    border-radius: 7px;
-    border: none;
-}
-.form-control{
-    width: 50%;
-}
-
-input{
-    width: 50%;
-    padding: 0.4rem;
-    border-radius: 7px;
-    border: none;
-}
-
 
 /* dettalle*/
 .contenedor-grid{
@@ -105,7 +94,7 @@ gap: 25px;
 }
 
 h1,h2,h3,h5,h6,label{
-    color: rgb(255, 255, 255);
+    color: aliceblue;
 }
 .margenes{
    margin-left:1rem ;
@@ -191,5 +180,4 @@ p,ul li{
 ::-webkit-scrollbar-thumb {
     background-color: var(--primary-green);
     border-radius: 5px;
-
 }

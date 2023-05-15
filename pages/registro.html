@@ -22,47 +22,59 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/style/style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="../style/style.css" />
+    <title>60fps - Registro</title>
 </head>
 <body>
     <header>
       <nav class="navbar bg-black">
         <div class="container-fluid">
-          <a href="/index.html" class="navbar-brand"><img src="/img/60Fps (logoNav).png" width="200px" alt="60fpsNavbar"></a>
+          <a href="../index.html" class="navbar-brand"><img src="/img/60Fps (logoNav).png" width="200px" alt="60fpsNavbar"></a>
           <section class="d-flex pe-4" role="search">
             <button class="btn botonOscuro btn-outline-success ColorVerde" id="btn-login" >Iniciar sesion</button>
-            <a href="./pages/registro.html" class="btn botonOscuro btn-outline-success ColorVerde ms-2" id="btn-registro" >Registrarse</a>
+            <a href="../pages/registro.html" class="btn botonOscuro btn-outline-success ColorVerde ms-2" id="btn-registro" >Registrarse</a>
           </section>
         </div>
       </nav>
     </header>
-    <main class="bg-black my-md-4">
-      <section class="hero p5 bg-black text-center">
-        <img class="img-fluid" src="./img/60Fps(logoFoot).png" alt="">
-        <div class="hero-title">
-          <h1 class="text-black">60 Fps - Tu mejor tienda de juegos digitales</h1>
-        </div>
-      </section>
-      <section class="games-container general-container container my-5 p-4">
-        <article class="d-flex justify-content-around align-items-center mb-5">
-          <h2>Mira nuestro catálogo!</h2>
-          <form action="">
-            <div class="form-floating">
-              <input type="text" name="buscador" class="form-control bg-dark input-busqueda-juegos border-0 text-white" maxlength="50" id="busca-juegos" placeholder="Buscar juegos...">
-              <label class="" for="busca-juegos">Buscar</label>
+
+    <main class="bg-black my-md-5">
+        <section class="d-flex justify-content-center mt-5 pt-4">
+          
+        <form id="formulario-registro" class="d-flex flex-column card-formulario general-container">
+            <h3 class="text-center">Registrate</h3>
+            <div class="form-floating my-3">
+              <input class="form-control bg-dark border-0 text-white" type="text" id="registro-nombre" name="registro-nombre" required minlength="2" maxlength="20">
+              <label for="registro-nombre">nombre</label>
+              <div class="invalid-feedback">Debe ingresar un nombre válido</div>
             </div>
-          </form>
-        </article>
-        <article id="contenedor-juegos" class="row d-flex justify-content-around pb-md-4">
-        </article>
-      </section>
+            <div class="form-floating my-3">
+              <input class="form-control bg-dark border-0 text-white" type="text" id="registro-email" name="registro-email" required minlength="10" maxlength="50">
+              <label for="registro-email">Email</label>
+              <div class="invalid-feedback">Debe ingresar un mail válido</div>
+            </div>
+            <div class="form-floating">
+              <input class="form-control bg-dark border-0 text-white" type="password" id="registro-password" name="registro-password" required minlength="8" maxlength="30">
+              <label for="registro-password">Password</label>
+              <div class="invalid-feedback">La contraseña debe tener al menos 8 caracteres, con al menos una mayúscula, un numero y un caracter especial</div>
+            </div>
+            <div class="form-floating my-3">
+              <input class="form-control bg-dark border-0 text-white" type="password" id="registro-repetir-password" name="registro-repetir-password" required minlength="8" maxlength="30">
+              <label for="registro-repetir-password">Repetir password</label>
+              <div class="invalid-feedback">Las contraseñas no coinciden</div>
+            </div>
+            <div id="registro-error-mensaje" class="bg-green d-none text-center m-2 text-black">No se pudo registrar: El mail ya esta en uso</div>
+            
+            <button type="submit" class="btn btn-outline-light mt-3">Registrar</button>
+        </form>
+    </section>
     </main>
-    <footer class="bg-black text-bg-dark pt-4 ">
+
+    <footer class="bg-black text-bg-dark pt-4">
       <section class="container-fluid text-center justify-content-between">
         <article class="row text-info">
           <aside class="col-12 col-md-4 col-lg-4 mb-2">
-            <img  src="/img/60Fps(logoFoot).png" width="250px" alt="logoFooter" />
+            <img  src="../img/60Fps(logoFoot).png" width="250px" alt="logoFooter" />
           </aside>
           <aside class="col-12 col-md-4 col-lg-4 mb-2 pt-4">
             <h5 class="ColorVerde">Preguntas? Llama al 0800 666 3331</h5>
@@ -83,7 +95,7 @@
           <aside class="col-12 col-md-4 col-lg- mb-2 pt-4">
             <h5 class="ColorVerde">Por mas consultas</h5>
             <a
-              href="/pages/acercaNosotros.html"
+              href=""
               class="fw-bold text-secondary fs-4"
               >Acerca de nosotros</a
             >
@@ -91,7 +103,8 @@
         </article>
       </section>
     </footer>
-   <div class="modal fade" id="modal-login" tabindex="-1" aria-labelledby="modal-login" aria-hidden="true">
+    <!-- Modals -->
+    <div class="modal fade" id="modal-login" tabindex="-1" aria-labelledby="modal-login" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content bg-black general-container">
           <div class="modal-body">
@@ -117,12 +130,28 @@
         </div>
       </div>
     </div>
+    <div id="modalRegistroExitoso" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content bg-black">
+          <div class="modal-header bg-green p-2 rounded">
+            <h5 class="modal-title fs-5 text-dark">Registro Exitoso</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <p>¡Registro exitoso! Bienvenido/a.</p>
+          </div>
+          <div class="modal-footer">
+            <button id="btn-login-registro" type="button" class="btn btn-success" data-bs-dismiss="modal">Iniciar sesion</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/index.js" type="module"></script>
-    <script src="./js/login.js" type="module"></script>
+    <script src="../js/registro.js" type="module"></script>
+    <script src="../js/login.js" type="module"></script>
 </body>
 </html>
