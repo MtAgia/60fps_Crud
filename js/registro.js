@@ -4,6 +4,10 @@ const registroNombre = document.querySelector("#registro-nombre");
 const registroMail = document.querySelector("#registro-email");
 const registroPassword = document.querySelector("#registro-password");
 const registroRepetirPassword = document.querySelector("#registro-repetir-password");
+const registroErrorMensaje = document.querySelector("#registro-error-mensaje");
+const modalRegistroExitoso = new bootstrap.Modal(document.getElementById("modalRegistroExitoso"));
+const btnLogin = document.querySelector("#btn-login-registro");
+const modalLogin = new bootstrap.Modal(document.querySelector("#modal-login"));
 
 
 formularioRegistro.addEventListener("submit", registrar);
@@ -11,6 +15,8 @@ registroNombre.addEventListener("input", validarNombre);
 registroMail.addEventListener("input", validarEmail);
 registroPassword.addEventListener("input", validarPassword);
 registroRepetirPassword.addEventListener("input", validarRepetirPassword);
+btnLogin.addEventListener("click", mostrarModalLogin);
+
 
 function registrar(e) {
     e.preventDefault();
@@ -20,14 +26,16 @@ function registrar(e) {
     if (valid) {
         const nuevoUsuario = new Usuario(registroNombre.value, registroMail.value, registroPassword.value, false);
         if (Usuario.crearUsuario(nuevoUsuario)) {
-            
+            modalRegistroExitoso.show();
+            formularioRegistro.reset();
         } else {
-
+            registroErrorMensaje.classList.remove("d-none");
         }
     }
 }
   
 function validarEmail() {
+    registroErrorMensaje.classList.add("d-none");
     const regExMail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (regExMail.test(registroMail.value)) {
         registroMail.classList.remove("is-invalid");
@@ -78,5 +86,14 @@ function validarNombre() {
       registroNombre.classList.remove("is-valid");
       registroNombre.classList.add("is-invalid");
       return false;
+    }
+}
+
+function mostrarModalLogin() {
+    if (btnLogin.innerHTML.toLowerCase() === "iniciar sesion") {
+        modalRegistroExitoso.hide();
+        modalLogin.show();
+    } else {
+        logout();
     }
 }

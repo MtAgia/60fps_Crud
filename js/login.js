@@ -27,12 +27,13 @@ function login(e) {
         btnLogin.innerHTML = "Cerrar Sesion";
         btnRegistro.classList.add("d-none");
         modalLogin.hide();
+        window.location.href = "../index.html";
       } else {
         const loginErrorMensaje = document.querySelector("#login-error-mensaje");
         loginErrorMensaje.classList.remove("d-none");
       }
     } 
-  }
+}
 
 function validarEmail() {
     const regExMail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
