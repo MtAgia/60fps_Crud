@@ -181,3 +181,7 @@ p,ul li{
     background-color: var(--primary-green);
     border-radius: 5px;
 }
+
+.filtro{
+    display: none;
+}
