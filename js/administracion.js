@@ -3,6 +3,7 @@ import { totalValidaciones } from "./helpersAdministracion.js";
 
 const formJuegos = document.getElementById("formJuegos");
 const modalJuego = new bootstrap.Modal(document.getElementById("modalAdministrarJuego"));
+const modalEliminarJuego = new bootstrap.Modal(document.getElementById("modalEliminarJuego"));
 const btnAgregarJuego = document.querySelector("#btnAgregarJuego");
 const tablaJuego = document.querySelector("tbody");
 const idContainer = document.querySelector(".id-container");
@@ -59,8 +60,13 @@ function crearFila(tablaJuego, i){
           class="btn btn-warning mx-1"
           onclick="prepararEditarJuego('${tablaJuego.id}')"
         >
-          <i class="bi bi-pencil-square"></i></button
-        ><button type="button" class="btn btn-danger mx-1" ">
+          <i class="bi bi-pencil-square"></i>
+        </button>
+        <button 
+          type="button" 
+          class="btn btn-danger mx-1"
+          onclick="abrirModalEliminarJuego('${tablaJuego.id}')"
+        >
           <i class="bi bi-x-square"></i>
         </button>
       </td>
@@ -180,6 +186,22 @@ function editarJuego() {
     alerta.innerHTML=  errores;
   }
 
+}
+
+window.abrirModalEliminarJuego = (id) => {
+  modalEliminarJuego.show();
+  const juegoBuscado = listaJuegos.find((juego) => juego.id === id);
+  const nombreEliminarJuego = document.querySelector("#nombre-juego-eliminar");
+  const btnEliminarJuego = document.querySelector("#btn-eliminar-juego");
+  btnEliminarJuego.addEventListener("click", () => eliminarJuego(id));
+  nombreEliminarJuego.textContent = `${juegoBuscado.nombre}`;
+}
+
+window.eliminarJuego = (id) => {
+  const posicionJuego = listaJuegos.findIndex((juego) => juego.id === id);
+  listaJuegos.splice(posicionJuego, 1);
+  guardarEnLocalStorage();
+  tablaJuego.removeChild(tablaJuego.children[posicionJuego]);
 }
 
 function mostrarModalAdministrador(){

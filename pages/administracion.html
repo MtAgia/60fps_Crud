@@ -25,7 +25,8 @@
     <link rel="stylesheet" href="../style/style.css" />
     <title>Document</title>
 </head>
-<body onload="verificarPermisos()">
+<!-- <body onload="verificarPermisos()"> -->
+<body>
     <header>
       <nav class="navbar bg-black">
         <div class="container-fluid">
@@ -223,6 +224,7 @@
         </article>
       </section>
     </footer>
+    <!-- Modales -->
     <div class="modal fade" id="modal-login" tabindex="-1" aria-labelledby="modal-login" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content bg-black general-container">
@@ -245,6 +247,23 @@
               <div id="login-error-mensaje" class="bg-green d-none text-center m-2">El mail o contraseña ingresados son incorrectos</div>
               <button type="submit" class="btn btn-outline-light mt-3">Iniciar Sesion</button>
             </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modalEliminarJuego" tabindex="-1" aria-labelledby="modalEliminarJuegoLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content bg-black general-container">
+          <div class="modal-header bg-green">
+            <h5 class="modal-title text-black" id="modalEliminarJuegoLabel">Confirmar eliminación</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ¿Estás seguro de que deseas eliminar el juego <span id="nombre-juego-eliminar"></span>?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" id="btn-eliminar-juego">Eliminar</button>
           </div>
         </div>
       </div>
