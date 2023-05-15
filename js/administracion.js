@@ -188,3 +188,10 @@ function mostrarModalAdministrador(){
   modalJuego.show();
   verificarCrearJuego = true;
 }
+
+window.verificarPermisos = () => {
+    const usuarioLogeado = JSON.parse(sessionStorage.getItem('loggedUser'));
+    if (!usuarioLogeado || !usuarioLogeado.isAdmin) {
+      window.location.href = 'sin-permisos.html';
+    }
+}
