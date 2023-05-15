@@ -4,12 +4,15 @@ const btnLogin = document.querySelector("#btn-login");
 const formularioLogin = document.querySelector(".formulario-login");
 const btnRegistro = document.querySelector("#btn-registro");
 const modalLogin = new bootstrap.Modal(document.querySelector("#modal-login"));
+const btnNavbarAdministracion = document.querySelector("#btn-navbar-administracion");
+const btnNavbarDeseados = document.querySelector("#btn-navbar-deseados");
 
 formularioLogin.email.addEventListener("input", validarEmail);
 formularioLogin.password.addEventListener("input", validarPassword);
 formularioLogin.addEventListener("submit", login);
 btnLogin.addEventListener("click", mostrarModalLogin);
 
+Usuario.crearUsuario(new Usuario("admin", "admin@mail.com", "Admin123#", true));
 
 function mostrarModalLogin() {
     if (btnLogin.innerHTML.toLowerCase() === "iniciar sesion") {
@@ -72,11 +75,23 @@ function logout() {
 verificarUsuarioLogeado();
 
 function verificarUsuarioLogeado(){
-    if (sessionStorage.getItem("loggedUser")) {
+    const usuarioEnSessionStorage = JSON.parse(sessionStorage.getItem("loggedUser"));
+
+    if (usuarioEnSessionStorage) {
         btnLogin.innerHTML = "Cerrar Sesion";
         btnRegistro.classList.add("d-none");
+        
+        if (usuarioEnSessionStorage.isAdmin == true) {
+            btnNavbarAdministracion.classList.remove("d-none");
+        } else {
+            btnNavbarDeseados.classList.remove("d-none");
+            btnNavbarAdministracion.classList.add("d-none");
+        }
+
     } else {
         btnLogin.innerHTML = "Iniciar Sesion";
         btnRegistro.classList.remove("d-none");
+        btnNavbarDeseados.classList.add("d-none");
+        btnNavbarAdministracion.classList.add("d-none");
     }
 }

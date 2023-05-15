@@ -182,6 +182,13 @@ p,ul li{
     border-radius: 5px;
 }
 
+
 .filtro{
     display: none;
 }
+
+.btn-outline-success:hover {
+    color: black;
+    background-color: var(--primary-green);
+}
+
