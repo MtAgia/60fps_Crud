@@ -17,6 +17,8 @@ const sectionGestionarUsuarios = document.querySelector("#gestionarUsuarios");
 const btnGestionarUsuarios = document.querySelector("#btnGestionarUsuarios");
 const btnGestionarJuegos = document.querySelector("#btnGestionarJuegos");
 
+
+
 btnGestionarJuegos.addEventListener("click", () => {
     sectionGestionarJuegos.classList.remove("d-none");
     sectionGestionarUsuarios.classList.add("d-none");
@@ -39,7 +41,6 @@ let listaUsuarios = Usuario.getUsuarios();
 cargaInicial();
 
 function cargaInicial() {
-
     if(!listaUsuarios){
         listaUsuarios = [];
     }
