@@ -1,14 +1,11 @@
 import VideoJuego from "./classJuegos.js";
 import { totalValidaciones } from "./helpersAdministracion.js";
-/*
-CRUD
-Create
-*/
+
 const formJuegos = document.getElementById("formJuegos");
 const modalJuego = new bootstrap.Modal(document.getElementById("modalAdministrarJuego"));
 const btnAgregarJuego = document.querySelector("#btnAgregarJuego");
 const tablaJuego = document.querySelector("tbody");
-
+const idContainer = document.querySelector(".id-container");
 
 formJuegos.addEventListener("submit", prepararJuego);
 btnAgregarJuego.addEventListener("click", mostrarModalAdministrador);
@@ -90,7 +87,7 @@ function limpiarFrom() {
 let alerta = document.getElementById(`alertError`);
 
 function crearJuego(){
-  //validacion
+
   let errores = totalValidaciones(nombre.value, 
   descripcion.value,
   imagen.value,
@@ -99,8 +96,9 @@ function crearJuego(){
   reqDelSistema.value,
   desarrolador.value
   )
+
   if(errores.length === 0){
-    //creacion
+
     let prueba = new VideoJuego(
       nombre.value,
       precio.value,
@@ -110,17 +108,20 @@ function crearJuego(){
       reqDelSistema.value,
       desarrolador.value
     );
+
     listaJuegos.push(prueba);
-    localStorage.setItem(`listaJuego`, JSON.stringify(listaJuegos));
-    console.log(prueba);
-    console.log(listaJuegos);
+
+    guardarEnLocalStorage();
+
     limpiarFrom();
-    alerta.className = "alert alert-success ColorVerde border-0 text-center bg-black"
-    alerta.innerHTML = "cargada correctamente"
-    crearFila(prueba , listaJuegos.length )
+
+    alerta.className = "alert alert-success ColorVerde border-0 text-center bg-black";
+    alerta.innerHTML = "cargada correctamente";
+
+    crearFila(prueba , listaJuegos.length );
   }else{
-    alerta.className = "alert alert-success colorRojo border-0 text-center bg-black"
-    alerta.innerHTML=  errores
+    alerta.className = "alert alert-success colorRojo border-0 text-center bg-black";
+    alerta.innerHTML=  errores;
   }
 }
 
@@ -129,7 +130,7 @@ window.prepararJuego = (idJuego) => {
 
   const juegoBuscado = listaJuegos.find((juego) => juego.id === idJuego);
   
-  // id.value = juegoBuscado.id;
+  id.value = juegoBuscado.id;
   nombre.value = juegoBuscado.nombre;
   descripcion.value = juegoBuscado.descripcion;
   imagen.value = juegoBuscado.imagen;
@@ -142,25 +143,42 @@ window.prepararJuego = (idJuego) => {
 }
 
 function editarJuego() {
-  const posicionJuego = listaJuegos.find((juego) => juego.id === id.value);//Esto debo modificar
+  const posicionJuego = listaJuegos.findIndex((juego) => juego.id === id.value);
 
-  listaJuegos[posicionJuego].nombre = nombre.value;
-  listaJuegos[posicionJuego].descripcion = descripcion.value;
-  listaJuegos[posicionJuego].imagen = imagen.value;
-  listaJuegos[posicionJuego].categoria = categoria.value;
-  listaJuegos[posicionJuego].precio = precio.value;
-  listaJuegos[posicionJuego].requisitosDeSistema = reqDelSistema.value;
-  listaJuegos[posicionJuego].desarrolador = nombre.desarrolador;
+  let errores = totalValidaciones(nombre.value, 
+    descripcion.value,
+    imagen.value,
+    categoria.value,
+    precio.value,
+    reqDelSistema.value,
+    desarrolador.value
+  );
 
-  guardarEnLocalStorage();
+  if(errores.length === 0){
 
-  tablaJuego.children[posicionJuego].children[1].innerHTML = nombre.value;
-  tablaJuego.children[posicionJuego].children[2].innerHTML = descripcion.value;
-  tablaJuego.children[posicionJuego].children[3].innerHTML = imagen.value;
-  tablaJuego.children[posicionJuego].children[4].innerHTML = categoria.value;
+    listaJuegos[posicionJuego].nombre = nombre.value;
+    listaJuegos[posicionJuego].descripcion = descripcion.value;
+    listaJuegos[posicionJuego].imagen = imagen.value;
+    listaJuegos[posicionJuego].categoria = categoria.value;
+    listaJuegos[posicionJuego].precio = precio.value;
+    listaJuegos[posicionJuego].requisitosDeSistema = reqDelSistema.value;
+    listaJuegos[posicionJuego].desarrolador = nombre.desarrolador;
+  
+    guardarEnLocalStorage();
+  
+    tablaJuego.children[posicionJuego].children[1].innerHTML = nombre.value;
+    tablaJuego.children[posicionJuego].children[2].innerHTML = descripcion.value;
+    tablaJuego.children[posicionJuego].children[3].innerHTML = imagen.value;
+    tablaJuego.children[posicionJuego].children[4].innerHTML = categoria.value;
+  
+    formJuegos.reset();
+    modalJuego.hide();
 
-  formJuegos.reset();
-  modalJuego.hide();
+  } else {
+    alerta.className = "alert alert-success colorRojo border-0 text-center bg-black";
+    alerta.innerHTML=  errores;
+  }
+
 }
 
 function mostrarModalAdministrador(){
