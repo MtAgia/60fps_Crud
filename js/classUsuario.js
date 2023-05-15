@@ -97,14 +97,21 @@ export default class Usuario {
       let usuarios = this.getUsuarios();
   
       const usuarioEncontrado = usuarios.find((u) => u.mail === mail);
+      console.log(usuarioEncontrado);
   
       if (usuarioEncontrado && usuarioEncontrado.password === password) {
         console.log(`Bienvenido, ${usuarioEncontrado.nombre}!`);
+        sessionStorage.setItem("loggedUser", JSON.stringify(usuarioEncontrado));
         return true;
       } else {
         console.log("Email o contraseña incorrectos.");
         return false;
       }
+    }
+
+    static logout() {
+      sessionStorage.removeItem("loggedUser");
+      console.log("Sesión cerrada");
     }
   
     toJSON() {

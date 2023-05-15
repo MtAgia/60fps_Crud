@@ -29,9 +29,10 @@
     <header>
       <nav class="navbar bg-black">
         <div class="container-fluid">
-          <a href="/index.html" class="navbar-brand"><img src="/img/60Fps (logoNav).png" width="200px" alt="60fpsNavbar"></a>
+          <a href="../index.html" class="navbar-brand"><img src="/img/60Fps (logoNav).png" width="200px" alt="60fpsNavbar"></a>
           <section class="d-flex pe-4" role="search">
-            <button class="btn botonOscuro btn-outline-success ColorVerde" >Iniciar</button>
+            <button class="btn botonOscuro btn-outline-success ColorVerde" id="btn-login" >Iniciar sesion</button>
+            <a href="../pages/registro.html" class="btn botonOscuro btn-outline-success ColorVerde ms-2" id="btn-registro" >Registrarse</a>
           </section>
         </div>
       </nav>
@@ -144,6 +145,32 @@
         </article>
       </section>
     </footer>
+    <div class="modal fade" id="modal-login" tabindex="-1" aria-labelledby="modal-login" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content bg-black general-container">
+          <div class="modal-body">
+            <div class="d-flex justify-content-between bg-green p-2 rounded">
+                <h2 class="modal-title fs-5 text-dark" id="modal">Iniciar sesión</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="formulario-login text-dark" id="Culumna" >
+              <div class="form-floating my-3">
+                <input class="form-control bg-dark border-0 text-white" type="text" id="email" name="email">
+                <label for="email">Email</label>
+                <div class="invalid-feedback">Debe ingresar un mail válido</div>
+              </div>
+              <div class="form-floating">
+                <input class="form-control bg-dark border-0 text-white" type="password" id="password" name="password">
+                <label for="password">Password</label>
+                <div class="invalid-feedback">La contraseña debe tener al menos 8 caracteres, con al menos una mayúscula, un numero y un caracter especial</div>
+              </div>
+              <div id="login-error-mensaje" class="bg-green d-none text-center m-2">El mail o contraseña ingresados son incorrectos</div>
+              <button type="submit" class="btn btn-outline-light mt-3">Iniciar Sesion</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"

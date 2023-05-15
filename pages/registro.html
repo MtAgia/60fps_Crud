@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="juegos,pc,games, opiniones,jugabilidad" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="keywords"
+      content="juegos,pc,games, opiniones,jugabilidad"
+    />
     <meta
       name="description"
       content="Trabajo de modulo 2 con javascript, acerca de una plataforma de videojuegos"
@@ -20,9 +23,9 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../style/style.css" />
-    <title>Document</title>
-  </head>
-  <body>
+    <title>60fps - Registro</title>
+</head>
+<body>
     <header>
       <nav class="navbar bg-black">
         <div class="container-fluid">
@@ -34,78 +37,44 @@
         </div>
       </nav>
     </header>
-    <main class="bg-black">
-      <section class="margenes" id="seccionDetalleJuego">
-        <div class="contenedor-grid">
 
-          <div class="imagen">
-            <img src="../img/dbz  Fighter.jpeg" alt="" />
-          </div>
-
-          <article class="contenido">
-            <div>
-              <h3>
-              Dragon Ball FighterZ - Fighterz Edition XBOX LIVE Key ARGENTINA
-            </h3>
-          </div>
+    <main class="bg-black my-md-5">
+        <section class="d-flex justify-content-center mt-5 pt-4">
+          
+        <form id="formulario-registro" class="d-flex flex-column card-formulario general-container">
+            <h3 class="text-center">Registrate</h3>
+            <div class="form-floating my-3">
+              <input class="form-control bg-dark border-0 text-white" type="text" id="registro-nombre" name="registro-nombre" required minlength="2" maxlength="20">
+              <label for="registro-nombre">nombre</label>
+              <div class="invalid-feedback">Debe ingresar un nombre válido</div>
+            </div>
+            <div class="form-floating my-3">
+              <input class="form-control bg-dark border-0 text-white" type="text" id="registro-email" name="registro-email" required minlength="10" maxlength="50">
+              <label for="registro-email">Email</label>
+              <div class="invalid-feedback">Debe ingresar un mail válido</div>
+            </div>
+            <div class="form-floating">
+              <input class="form-control bg-dark border-0 text-white" type="password" id="registro-password" name="registro-password" required minlength="8" maxlength="30">
+              <label for="registro-password">Password</label>
+              <div class="invalid-feedback">La contraseña debe tener al menos 8 caracteres, con al menos una mayúscula, un numero y un caracter especial</div>
+            </div>
+            <div class="form-floating my-3">
+              <input class="form-control bg-dark border-0 text-white" type="password" id="registro-repetir-password" name="registro-repetir-password" required minlength="8" maxlength="30">
+              <label for="registro-repetir-password">Repetir password</label>
+              <div class="invalid-feedback">Las contraseñas no coinciden</div>
+            </div>
+            <div id="registro-error-mensaje" class="bg-green d-none text-center m-2 text-black">No se pudo registrar: El mail ya esta en uso</div>
             
-<div class="d-flex">
-    <i class="bi bi-star-fill"></i>
-    <i class="bi bi-star-fill"></i>
-    <i class="bi bi-star-fill"></i>
-    <i class="bi bi-star-fill"></i>
-    <i class="bi bi-star-fill"></i>
-</div>
-<div class="d-flex">
-    <button class="btn-categorias">Acción</button>
-    <button class="btn-categorias">Un solo jugador
-    </button>
-    <button class="btn-categorias">Multijugador</button>
-    <button class="btn-categorias">Lucha</button>
-</div>
-
-<div class="mt-3">
-  <h6>Desarrollador:</h6>
-  <p>Arc System Works </p>
-  <h6>Descripcion:</h6>
-  <p>Es un juego de lucha en 2D en el que los jugadores controlan equipos de tres personajes y luchan en batallas de estilo arcade contra otros equipos. Los personajes pueden realizar una variedad de movimientos y combos de lucha, incluyendo ataques especiales y superataques que pueden infligir grandes cantidades de daño a los oponentes. </p>
-  <h6>
-    Requerimientos mínimos:
-  </h6>
- <ul>
-  <li>Sistema operativo: Windows 7/8/10 (64-bit)</li>
-  <li>Procesador: AMD FX-4350, 4.2 GHz / Intel Core i5-3470, 3.2 GHz</li>
-  <li>Memoria RAM: 4 GB</li>
-  <li>Tarjeta de video: Radeon HD 6870, 1 GB / GeForce GTX 650 Ti, 1 GB</li>
-  <li>Espacio en disco duro: 30 GB de espacio libre</li>
- </ul>
- <h6>Requerimientos recomendados:</h6>
- <ul>
-  <li>Sistema operativo: Windows 7/8/10 (64-bit)</li>
-  <li>Procesador: AMD Ryzen 5 1400, 3.2 GHz / Intel Core i7-3770, 3.4 GHz</li>
-  <li>Memoria RAM: 8 GB</li>
-  <li>Tarjeta de video: Radeon HD 7870, 2 GB / GeForce GTX 660, 2 GB</li>
-  <li>Espacio en disco duro: 30 GB de espacio libre</li>
- </ul>
-</div>
-
-          </article>
-          <div class="card-carrito ">
-            <h2>2,48 €</h2>
-            <button class="btn btn-warning my-2">Comprar ahora</button>
-            <button class="btn btn-outline-light">Añadir al carrito</button>
-          </div>
-      </section>
+            <button type="submit" class="btn btn-outline-light mt-3">Registrar</button>
+        </form>
+    </section>
     </main>
-    <footer class="bg-black text-bg-dark pt-4 mt-5">
+
+    <footer class="bg-black text-bg-dark pt-4">
       <section class="container-fluid text-center justify-content-between">
         <article class="row text-info">
           <aside class="col-12 col-md-4 col-lg-4 mb-2">
-            <img
-              src="/img/60Fps(logoFoot).png"
-              width="250px"
-              alt="logoFooter"
-            />
+            <img  src="../img/60Fps(logoFoot).png" width="250px" alt="logoFooter" />
           </aside>
           <aside class="col-12 col-md-4 col-lg-4 mb-2 pt-4">
             <h5 class="ColorVerde">Preguntas? Llama al 0800 666 3331</h5>
@@ -125,13 +94,16 @@
           </aside>
           <aside class="col-12 col-md-4 col-lg- mb-2 pt-4">
             <h5 class="ColorVerde">Por mas consultas</h5>
-            <a href="" class="fw-bold text-secondary fs-4"
+            <a
+              href=""
+              class="fw-bold text-secondary fs-4"
               >Acerca de nosotros</a
             >
           </aside>
         </article>
       </section>
     </footer>
+    <!-- Modals -->
     <div class="modal fade" id="modal-login" tabindex="-1" aria-labelledby="modal-login" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content bg-black general-container">
@@ -158,10 +130,28 @@
         </div>
       </div>
     </div>
+    <div id="modalRegistroExitoso" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content bg-black">
+          <div class="modal-header bg-green p-2 rounded">
+            <h5 class="modal-title fs-5 text-dark">Registro Exitoso</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <p>¡Registro exitoso! Bienvenido/a.</p>
+          </div>
+          <div class="modal-footer">
+            <button id="btn-login-registro" type="button" class="btn btn-success" data-bs-dismiss="modal">Iniciar sesion</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
-  </body>
+    <script src="../js/registro.js" type="module"></script>
+    <script src="../js/login.js" type="module"></script>
+</body>
 </html>

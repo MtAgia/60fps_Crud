@@ -1,12 +1,19 @@
 import VideoJuego from "./classJuegos.js";
 import { totalValidaciones } from "./helpersAdministracion.js";
-/*
-CRUD
-Create
-*/
-let formJuegos = document.getElementById(`formJuegos`)
-formJuegos.addEventListener(`submit`, prepararJuego);
-let id = document.getElementById(`id`),
+
+const formJuegos = document.getElementById("formJuegos");
+const modalJuego = new bootstrap.Modal(document.getElementById("modalAdministrarJuego"));
+const modalEliminarJuego = new bootstrap.Modal(document.getElementById("modalEliminarJuego"));
+const btnAgregarJuego = document.querySelector("#btnAgregarJuego");
+const tablaJuego = document.querySelector("tbody");
+const idContainer = document.querySelector(".id-container");
+
+formJuegos.addEventListener("submit", prepararJuego);
+btnAgregarJuego.addEventListener("click", mostrarModalAdministrador);
+
+let verificarCrearJuego = true;
+
+const id = document.getElementById(`id`),
   nombre = document.getElementById(`nombre`),
   descripcion = document.getElementById(`descripcion`),
   imagen = document.getElementById(`imagen`),
@@ -25,6 +32,7 @@ if(!listaJuegos){
 }
 
 cargaInicial();
+
 function cargaInicial() {
   if (listaJuegos.length > 0) {
     listaJuegos.map((juego, i) => crearFila(juego, i + 1));
@@ -50,11 +58,15 @@ function crearFila(tablaJuego, i){
         <button
           type="button"
           class="btn btn-warning mx-1"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
+          onclick="prepararEditarJuego('${tablaJuego.id}')"
         >
-          <i class="bi bi-pencil-square"></i></button
-        ><button type="button" class="btn btn-danger mx-1" ">
+          <i class="bi bi-pencil-square"></i>
+        </button>
+        <button 
+          type="button" 
+          class="btn btn-danger mx-1"
+          onclick="abrirModalEliminarJuego('${tablaJuego.id}')"
+        >
           <i class="bi bi-x-square"></i>
         </button>
       </td>
@@ -64,7 +76,15 @@ function crearFila(tablaJuego, i){
 
 function prepararJuego(e){
     e.preventDefault();
-    crearJuego();
+    if (verificarCrearJuego) {
+      crearJuego();
+    } else {
+      editarJuego();
+    }
+}
+
+function guardarEnLocalStorage(){
+  localStorage.setItem("listaJuego", JSON.stringify(listaJuegos));
 }
 
 function limpiarFrom() {
@@ -73,7 +93,7 @@ function limpiarFrom() {
 let alerta = document.getElementById(`alertError`);
 
 function crearJuego(){
-  //validacion
+
   let errores = totalValidaciones(nombre.value, 
   descripcion.value,
   imagen.value,
@@ -82,8 +102,9 @@ function crearJuego(){
   reqDelSistema.value,
   desarrolador.value
   )
+
   if(errores.length === 0){
-    //creacion
+
     let prueba = new VideoJuego(
       nombre.value,
       precio.value,
@@ -93,16 +114,127 @@ function crearJuego(){
       reqDelSistema.value,
       desarrolador.value
     );
+
     listaJuegos.push(prueba);
-    localStorage.setItem(`listaJuego`, JSON.stringify(listaJuegos));
-    console.log(prueba);
-    console.log(listaJuegos);
+
+    guardarEnLocalStorage();
+
     limpiarFrom();
-    alerta.className = "alert alert-success ColorVerde border-0 text-center bg-black"
-    alerta.innerHTML = "cargada correctamente"
-    crearFila(prueba , listaJuegos.length )
+
+    alerta.className = "alert alert-success ColorVerde border-0 text-center bg-black";
+    alerta.innerHTML = "cargada correctamente";
+
+    crearFila(prueba , listaJuegos.length );
   }else{
-    alerta.className = "alert alert-success colorRojo border-0 text-center bg-black"
-    alerta.innerHTML=  errores
+    alerta.className = "alert alert-success colorRojo border-0 text-center bg-black";
+    alerta.innerHTML=  errores;
   }
+}
+
+window.prepararEditarJuego = (idJuego) => {
+  idContainer.classList.remove("d-none");
+  modalJuego.show();
+
+  const juegoBuscado = listaJuegos.find((juego) => juego.id === idJuego);
+  
+  id.value = juegoBuscado.id;
+  nombre.value = juegoBuscado.nombre;
+  descripcion.value = juegoBuscado.descripcion;
+  imagen.value = juegoBuscado.imagen;
+  categoria.value = juegoBuscado.categoria;
+  precio.value = juegoBuscado.precio;
+  reqDelSistema.value = juegoBuscado.requisitosDeSistema;
+  desarrolador.value = juegoBuscado.desarrolador;
+
+  verificarCrearJuego = false;
+}
+
+function editarJuego() {
+  const posicionJuego = listaJuegos.findIndex((juego) => juego.id === id.value);
+
+  let errores = totalValidaciones(nombre.value, 
+    descripcion.value,
+    imagen.value,
+    categoria.value,
+    precio.value,
+    reqDelSistema.value,
+    desarrolador.value
+  );
+
+  if(errores.length === 0){
+
+    listaJuegos[posicionJuego].nombre = nombre.value;
+    listaJuegos[posicionJuego].descripcion = descripcion.value;
+    listaJuegos[posicionJuego].imagen = imagen.value;
+    listaJuegos[posicionJuego].categoria = categoria.value;
+    listaJuegos[posicionJuego].precio = precio.value;
+    listaJuegos[posicionJuego].requisitosDeSistema = reqDelSistema.value;
+    listaJuegos[posicionJuego].desarrolador = nombre.desarrolador;
+  
+    guardarEnLocalStorage();
+  
+    tablaJuego.children[posicionJuego].children[1].innerHTML = nombre.value;
+    tablaJuego.children[posicionJuego].children[2].innerHTML = descripcion.value;
+    tablaJuego.children[posicionJuego].children[3].innerHTML = imagen.value;
+    tablaJuego.children[posicionJuego].children[4].innerHTML = categoria.value;
+  
+    formJuegos.reset();
+    modalJuego.hide();
+
+  } else {
+    alerta.className = "alert alert-success colorRojo border-0 text-center bg-black";
+    alerta.innerHTML=  errores;
+  }
+
+}
+
+let confirmadoEliminacion = false;
+let idJuegoAEliminar;
+
+const btnEliminarJuego = document.querySelector("#btn-eliminar-juego");
+btnEliminarJuego.addEventListener("click", () => {
+  confirmadoEliminacion = true;
+  eliminarJuego(idJuegoAEliminar);
+});
+
+window.abrirModalEliminarJuego = (id) => {
+  modalEliminarJuego.show();
+  const juegoBuscado = listaJuegos.find((juego) => juego.id === id);
+  const nombreEliminarJuego = document.querySelector("#nombre-juego-eliminar");
+
+  idJuegoAEliminar = id;
+
+  nombreEliminarJuego.textContent = `${juegoBuscado.nombre}`;
+}
+
+window.eliminarJuego = (id) => {
+  if (!confirmadoEliminacion) {
+    return;
+  }
+
+  modalEliminarJuego.hide();
+  const posicionJuego = listaJuegos.findIndex((juego) => juego.id === id);
+
+  if (posicionJuego === -1) {
+    return;
+  }
+
+  confirmadoEliminacion = false;
+  listaJuegos.splice(posicionJuego, 1);
+  guardarEnLocalStorage();
+  tablaJuego.removeChild(tablaJuego.children[posicionJuego]);
+}
+
+function mostrarModalAdministrador(){
+  idContainer.classList.add("d-none");
+  formJuegos.reset();
+  modalJuego.show();
+  verificarCrearJuego = true;
+}
+
+window.verificarPermisos = () => {
+    const usuarioLogeado = JSON.parse(sessionStorage.getItem('loggedUser'));
+    if (!usuarioLogeado || !usuarioLogeado.isAdmin) {
+      window.location.href = 'sin-permisos.html';
+    }
 }
