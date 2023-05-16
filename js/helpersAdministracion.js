@@ -16,7 +16,7 @@ function validarURLImagenes(texto) {
 }
 
 function validacionCategoria(categoria){
-    if(categoria.length > 0 && categoria === 'Accion' || categoria === 'Aventura' || categoria === 'Comedia' || categoria === 'Terror' || categoria === 'Drama'){
+    if(categoria.length > 0 && categoria === 'Battle Royale' || categoria === 'Aventura' || categoria === 'Combate' || categoria === 'Mundo abierto' || categoria === 'Deportes'){
         return true;
     }else{
         return false;
