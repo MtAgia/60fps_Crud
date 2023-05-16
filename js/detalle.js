@@ -10,7 +10,7 @@ console.log( parametroId.get('codigo'))
 const seccion =  document.getElementById('seccionDetalleJuego');
 
 
-seccion.innerHTML =`<div class="contenedor-grid">
+seccion.innerHTML =`<div class="contenedor-grid container">
 
 <div class="imagen">
 <img src="${juegoBuscado.imagen}" alt="${juegoBuscado.imagen}">
@@ -40,7 +40,7 @@ seccion.innerHTML =`<div class="contenedor-grid">
 <h6>Descripcion:</h6>
 <p>${juegoBuscado.descripcion} </p>
 <h6>
-Requerimientos mínimos:
+Requerimientos del juego:
 </h6>
 <ul>
 <li>Sistema operativo: Windows 7/8/10 (64-bit)</li>
@@ -53,7 +53,7 @@ Requerimientos mínimos:
 
 </article>
 <div class="card-carrito ">
-  <h2>${juegoBuscado.precio}</h2>
+  <h2>${juegoBuscado.precio}$</h2>
   <button class="btn btn-warning my-2">Comprar ahora</button>
   <button class="btn btn-outline-light">Añadir al carrito</button>
 </div>`
