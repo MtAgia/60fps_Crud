@@ -22,10 +22,11 @@ body{
     display: flex;
     flex-direction: column;
     background-color: black;
+    min-height: 100vh;
 }
 
 main{
-    min-height: 100vh;
+    flex-grow: 1;
 }
 
 .hero-title {

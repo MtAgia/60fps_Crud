@@ -38,16 +38,12 @@
     </nav>
   </header>
 
-    <main class="bg-black">
- <section>
-    <div class="contenedor-img">
-        <div class="ocultar">
-            <h1 class="text-center">Ups algo salio mal</h1>
-            <h2>60fps - error404</h2>
-        </div>
-    
-    </div>
- </section>
+    <main class="bg-black my-md-4">
+      <section class="games-container general-container container my-5 p-4 text-center">
+        <h1 class="bg-green text-center rounded text-black">No se encontró la página que buscabas</h1>
+        <img class="img-fluid" src="https://http.cat/404" alt="">
+        <h2>Se te redigirá a una página mas apropiada para vos en <span id="contador-redireccion"></span></h2>
+       </section>
     </main>
 
     <footer class="bg-black text-bg-dark pt-4">
@@ -115,5 +111,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="/js/login.js" type="module"></script>
+    <script src="../js/redireccion.js"></script>
 </body>
 </html>

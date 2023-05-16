@@ -20,7 +20,7 @@ const id = document.getElementById(`id`),
   categoria = document.getElementById(`categoria`),
   precio = document.getElementById(`precio`),
   reqDelSistema = document.getElementById(`reqDelSistema`),
-  desarrolador = document.getElementById(`desarrolador`);
+  desarrollador = document.getElementById(`desarrollador`);
 
 let listaJuegos = JSON.parse(localStorage.getItem(`listaJuego`)) || [];
 if(!listaJuegos){
@@ -100,7 +100,7 @@ function crearJuego(){
   categoria.value,
   precio.value,
   reqDelSistema.value,
-  desarrolador.value
+  desarrollador.value
   )
 
   if(errores.length === 0){
@@ -112,7 +112,7 @@ function crearJuego(){
       categoria.value,
       imagen.value,
       reqDelSistema.value,
-      desarrolador.value
+      desarrollador.value
     );
 
     listaJuegos.push(prueba);
@@ -144,7 +144,7 @@ window.prepararEditarJuego = (idJuego) => {
   categoria.value = juegoBuscado.categoria;
   precio.value = juegoBuscado.precio;
   reqDelSistema.value = juegoBuscado.requisitosDeSistema;
-  desarrolador.value = juegoBuscado.desarrolador;
+  desarrollador.value = juegoBuscado.desarrollador;
 
   verificarCrearJuego = false;
 }
@@ -158,7 +158,7 @@ function editarJuego() {
     categoria.value,
     precio.value,
     reqDelSistema.value,
-    desarrolador.value
+    desarrollador.value
   );
 
   if(errores.length === 0){
@@ -169,7 +169,7 @@ function editarJuego() {
     listaJuegos[posicionJuego].categoria = categoria.value;
     listaJuegos[posicionJuego].precio = precio.value;
     listaJuegos[posicionJuego].requisitosDeSistema = reqDelSistema.value;
-    listaJuegos[posicionJuego].desarrolador = nombre.desarrolador;
+    listaJuegos[posicionJuego].desarrollador = desarrollador.value;
   
     guardarEnLocalStorage();
   

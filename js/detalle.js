@@ -54,8 +54,8 @@ Requerimientos del juego:
 </article>
 <div class="card-carrito ">
   <h2>${juegoBuscado.precio}$</h2>
-  <button class="btn btn-warning my-2">Comprar ahora</button>
-  <button class="btn btn-outline-light">Añadir al carrito</button>
+  <a href="/pages/error404.html" class="btn btn-warning my-2">Comprar ahora</a>
+  <a href="/pages/error404.html" class="btn btn-outline-light">Añadir al carrito</a>
 </div>`
 
 
