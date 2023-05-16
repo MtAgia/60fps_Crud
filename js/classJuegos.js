@@ -114,7 +114,7 @@ export default class VideoJuego {
       categoria: this.categoria,
       imagen: this.imagen,
       requisitosDeSistema: this.requisitosDeSistema,
-      desarrolador: this.desarrollador,
+      desarrollador: this.desarrollador,
       //resena: this.resena,
     };
   }

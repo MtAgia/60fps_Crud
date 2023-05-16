@@ -31,7 +31,7 @@ function validarPrecio(precio) {
   }
 }
 
-export function totalValidaciones(inputTexto, inputDescripcion, inputImagen, inputCategoria, inputPrecio, inputReqSistemas, inputDesarrolador){
+export function totalValidaciones(inputTexto, inputDescripcion, inputImagen, inputCategoria, inputPrecio, inputReqSistemas, inputdesarrollador){
     let resumen = "";
     if(!validarCantCaracteres(inputTexto, 2, 100)){
         resumen = "*Porfavor el nombre debe tener caracteres en el rango minimo de 2 y maximo 100"
@@ -51,8 +51,8 @@ export function totalValidaciones(inputTexto, inputDescripcion, inputImagen, inp
     if (!validarCantCaracteres(inputReqSistemas, 30, 400)) {
         resumen +="*Porfavor los requisitos del sistema tienen que tener mas de 30 caracteres y menos de 400 <br>";
     }
-    if (!validarCantCaracteres(inputDesarrolador, 2, 100)) {
-        resumen +="*Porfavor los desarroladores tienen que tener mas de 2 caracteres y menos de 100 <br>";
+    if (!validarCantCaracteres(inputdesarrollador, 2, 100)) {
+        resumen +="*Porfavor los desarrolladores tienen que tener mas de 2 caracteres y menos de 100 <br>";
     }
     return resumen
 }
