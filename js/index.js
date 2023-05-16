@@ -19,7 +19,7 @@ function mostrarJuegos(){
         <div class="d-flex justify-content-between flex-row flex-lg-column flex-xl-row">
             <h3 class="card-title fs-5">${juego.nombre}</h3>
         </div>
-        <p class="card-text">${juego.descripcion}</p>
+        <p class="card-text text-truncate">${juego.descripcion}</p>
         </div>
         <div class="card-footer d-flex justify-content-between align-items-center bg-dark">
         <p class="badge bg-dark mb-0"><i class="bi bi-currency-dollar pe-2"></i>${juego.precio}</p>
