@@ -169,7 +169,7 @@ function editarJuego() {
     listaJuegos[posicionJuego].categoria = categoria.value;
     listaJuegos[posicionJuego].precio = precio.value;
     listaJuegos[posicionJuego].requisitosDeSistema = reqDelSistema.value;
-    listaJuegos[posicionJuego].desarrolador = nombre.desarrolador;
+    listaJuegos[posicionJuego].desarrollador = nombre.desarrolador;
   
     guardarEnLocalStorage();
   

@@ -100,8 +100,8 @@ h1,h2,h3,h5,h6,label{
    margin-left:1rem ;
    margin-right:4rem ;
 }
-i{
-    color: #d7da06;
+div i{
+    color: #fff306;
     margin-right: 0.2rem;
     font-size: 1.4rem;
 }
