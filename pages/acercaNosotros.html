@@ -23,48 +23,100 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/style/style.css" />
-    <title>60fps</title>
+    <title>60fps - Acerca de nosotros</title>
 </head>
 <body>
     <header>
       <nav class="navbar bg-black">
         <div class="container-fluid">
-          <a href="/index.html" class="navbar-brand"><img src="/img/60Fps (logoNav).png" width="200px" alt="60fpsNavbar"></a>
+          <a href="../index.html" class="navbar-brand"><img src="/img/60Fps (logoNav).png" width="200px" alt="60fpsNavbar"></a>
           <section class="d-flex pe-4" role="search">
             <button class="btn botonOscuro btn-outline-success ColorVerde" id="btn-login" >Iniciar sesion</button>
-            <a href="./pages/registro.html" class="btn botonOscuro btn-outline-success ColorVerde ms-2" id="btn-registro" >Registrarse</a>
-            <a href="./pages/administracion.html" class="btn botonOscuro btn-outline-success ColorVerde ms-2 d-none" id="btn-navbar-administracion">Administracion</a>
-            <a href="./pages/deseados.html" class="btn botonOscuro btn-outline-success ColorVerde ms-2 d-none" id="btn-navbar-deseados">Deseados</a>
+            <a href="../pages/registro.html" class="btn botonOscuro btn-outline-success ColorVerde ms-2" id="btn-registro" >Registrarse</a>
           </section>
         </div>
       </nav>
     </header>
-    <main class="bg-black my-md-4">
-      <section class="hero p5 bg-black text-center">
-        <img class="img-fluid" src="./img/60Fps(logoFoot).png" alt="">
-        <div class="hero-title">
-          <h1 class="text-black">60 Fps - Tu mejor tienda de juegos digitales</h1>
-        </div>
-      </section>
-      <section class="games-container general-container container my-5 p-4">
-        <article class="d-flex justify-content-around align-items-center mb-5">
-          <h2>Mira nuestro catálogo!</h2>
-          <form action="">
-            <div class="form-floating">
-              <input type="text" name="buscador" class=" inputBuscar form-control bg-dark input-busqueda-juegos border-0 text-white" maxlength="50" id="busca-juegos" placeholder="Buscar juegos...">
-              <label class="" for="busca-juegos">Buscar</label>
-            </div>
-          </form>
-        </article>
-        <article id="contenedor-juegos" class="row d-flex justify-content-around pb-md-4">
-        </article>
-      </section>
+    <main class="container-fluid bg-black">
+        <section class="text-center py-3 text-light">
+            <h1>60Ffs Team</h1>
+            <p class="ps-4 pe-4">
+                Somos desarrolladores apasionados por los videojuegos creamos una página web para compartir lo mejor de videojuegos. 
+                Con el objetivo es proporcionar una plataforma para que los jugadores 
+                puedan descubrir nuevos títulos, compartir opiniones, y tener las mejores opciones calidad y rendimiento,
+                conectarnos mutuamente con una comunidad de jugadores 
+                apasionados. Acá un poco de nosotros, forma parte de 60fps Team!!
+            </p>
+          </section>
+          <hr class="text-light">
+          <section class="container">
+            <article class="row">
+              <aside class="col-sm-6 col-md-6 col-lg-6">
+                <img
+                  src="/img/terror1.png"
+                  alt="matias"
+                  width="500px"
+                  height="400px"
+                  class="my-4"
+                />
+              </aside>
+              <aside class="col-sm-6 col-md-6 col-lg-6 my-4">
+                <div class="text-light">
+                <h5>Nombre:</h5>
+                <p>Giacobbe Matias</p>
+                <h5>Edad:</h5>
+                <p>21 años</p>
+                <h5>Puesto:</h5>
+                <p>Programador backend / Scrum Master</p>
+                </div>
+              </aside>
+              <hr />
+              <aside class="col-sm-6 col-md-6 col-lg-6">
+                <img
+                  src="/img/terror2.png"
+                  alt="silvio"
+                  width="500px"
+                  height="400px"
+                  class="my-3"
+                />
+              </aside>
+              <aside class="col-sm-6 col-md-6 col-lg-6 my-4">
+                <div class="text-light">
+                <h5>Nombre:</h5>
+                <p>Silvio Javier Ruiz</p>
+                <h5>Edad:</h5>
+                <p>34 años</p>
+                <h5>Puesto:</h5>
+                <p>Programador backend</p>
+                </div>
+              </aside>
+              <hr />
+              <aside class="col-sm-6 col-md-6 col-lg-6">
+                <img
+                  src="/img/terror3.png"
+                  alt="facundo"
+                  width="500px"
+                  height="400px"
+                  class="my-3"
+                />
+              </aside>
+              <aside class="col-sm-6 col-md-6 col-lg-6 my-4">
+                <div class="text-light">
+                <h5>Nombre:</h5>
+                <p>Enzo Facundo	Cajal</p>
+                <h5>Edad:</h5>
+                <p>22 años</p>
+                <h5>Puesto:</h5>
+                <p>Programador Frontend</p>
+                </div>
+              </aside>
+            </article>
     </main>
-    <footer class="bg-black text-bg-dark pt-4 ">
+    <footer class="bg-black text-bg-dark pt-4">
       <section class="container-fluid text-center justify-content-between">
         <article class="row text-info">
           <aside class="col-12 col-md-4 col-lg-4 mb-2">
-            <img  src="/img/60Fps(logoFoot).png" width="250px" alt="logoFooter" />
+            <img  src="/img/60Fps (logoNav).png" width="250px" alt="logoFooter" />
           </aside>
           <aside class="col-12 col-md-4 col-lg-4 mb-2 pt-4">
             <h5 class="ColorVerde">Preguntas? Llama al 0800 666 3331</h5>
@@ -93,7 +145,7 @@
         </article>
       </section>
     </footer>
-   <div class="modal fade" id="modal-login" tabindex="-1" aria-labelledby="modal-login" aria-hidden="true">
+    <div class="modal fade" id="modal-login" tabindex="-1" aria-labelledby="modal-login" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content bg-black general-container">
           <div class="modal-body">
@@ -124,8 +176,6 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/index.js" type="module"></script>
-    <script src="./js/login.js" type="module"></script>
-    <script src="js/buscador.js"></script>
+    <script src="/js/login.js" type="module"></script>
 </body>
 </html>
